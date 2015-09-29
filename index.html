@@ -235,6 +235,20 @@ input[type="submit"]{
 	background-color: #cef178
 }
 
+input:required, input:invalid
+ {
+	background-image: url(caution.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+input:valid {
+	background-image: none;
+}
+label span {
+	color: #ff0000;
+}
+
 /*======pc用の設定=======-==--=*/
 @media only screen and (min-width:900px) {
 	
@@ -380,17 +394,27 @@ article section:nth-of-type(1n) figcaption
 <input type="hidden" name="_done" value="http://www.www.www/" />
 <input type="hidden" name="_subject" value="FORM MAIL" />
 
-<p><label>名前：<br>
-<input type="text" name="namae" size="40">
+<p><label>名前<span>(必須）</span>:<br>
+<input type="text" name="namae" size="40" required placeholder="名前を入力して下さい" autofocus>
 </label></p>
 
-<p>メールアドレス：<br />
-<input type="text" name="mail" size="40" />
+<p><label>メールアドレス<span>(必須）</span>:<br>
+<input type="email" name="mail" size="40" required
+placeholder="メールアドレスを入力して下さい">
+</label></p>
+
+<p>
+<label>URL:<br>
+<input type="url" name="url" size="40"
+placeholder="ホームページのURLを入力して下さい">
+</label>
 </p>
 
-<p>コメント：<br />
-<textarea name="comment" cols="50" rows="8"></textarea>
-</p>
+<p><label>コメント：<br>
+<textarea name="comment" cols="50" rows="8"
+placeholder="コメントなどを入力して下さい">
+</textarea>
+</label></p>
 
 <p id="button">
 <input type="submit" value="送信" />
